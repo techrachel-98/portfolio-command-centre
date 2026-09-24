@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rachel Sigamani — AI Builder & Full-Stack Developer</title>
+<meta name="description" content="Rachel Sigamani — AI Builder & Full-Stack Developer. AI automation, agents, and applied engineering. Building agentic systems end-to-end, from architecture to deployment." />
+<meta name="theme-color" content="#0b0a0f" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Rachel Sigamani — AI Builder & Full-Stack Developer" />
+<meta property="og:description" content="AI Automation, Agents & Applied Engineering. Building agentic systems end-to-end, from architecture to deployment." />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23221c33'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='70' font-size='58' font-family='Georgia,serif' font-weight='bold' fill='white' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    /* Dark palette — the only theme */
+    --bg: #0b0a0f;
+    --bg-alt: #100e16;
+    --surface: #15131d;
+    --surface-2: #1a1826;
+    --header-bg: rgba(11, 10, 15, .72);
+    --text: #f5f3fa;
+    --text-soft: #b6b1c4;
+    --text-faint: #7d7790;
+    --ink: #f5f3fa;
+    --btn-fg: #100e16;
+    --purple: #a78bfa;
+    --purple-bright: #c084fc;
+    --purple-soft: #8b5cf6;
+    --purple-wash: #201a34;
+    --purple-line: #33294f;
+    --border: #262336;
+    --border-strong: #322e45;
+    --glow: rgba(167, 139, 250, .22);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 6px 16px -6px rgba(0,0,0,.5);
+    --shadow-lg: 0 2px 8px rgba(0,0,0,.5), 0 28px 60px -20px rgba(0,0,0,.7);
+    --grid-line: rgba(255, 255, 255, .04);
+    --radius: 16px;
+    --radius-lg: 22px;
+    --maxw: 1080px;
+    --ease: cubic-bezier(.16,.8,.24,1);
+    --font-display: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  a { color: var(--purple); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ::selection { background: var(--purple); color: #fff; }
+
+  :focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Fine grain texture for depth — barely-there, same on both themes */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: .035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  @media (prefers-reduced-motion: reduce) { body::before { display: none; } }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 560px) { .wrap { padding: 0 20px; } }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.12;
+    letter-spacing: -0.022em;
+    margin: 0;
+    color: var(--text);
+  }
+
+  .grad-text {
+    background: linear-gradient(103deg, #d8b4fe, #a78bfa 55%, #f5f3fa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- Scroll progress ---------- */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--ink), var(--purple));
+    z-index: 100;
+    transition: width .1s linear;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: var(--header-bg);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s ease, background .2s ease;
+  }
+  header.scrolled { border-bottom-color: var(--border); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .brand:hover { text-decoration: none; }
+  .brand .mark {
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(140deg, #241d38, #7c3aed);
+    color: #fff;
+    display: grid; place-items: center;
+    font-size: 15px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px -3px var(--glow);
+  }
+  .nav-right { display: flex; align-items: center; gap: 30px; }
+  .nav-links { display: flex; gap: 30px; font-size: 14.5px; }
+  .nav-links a {
+    color: var(--text-soft);
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 0; height: 2px;
+    border-radius: 2px;
+    background: var(--purple);
+    transition: width .22s ease;
+  }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  .nav-links a:hover::after,
+  .nav-links a.active::after { width: 100%; }
+  .nav-links a.active { color: var(--text); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  .menu-btn {
+    display: none;
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    place-items: center;
+  }
+  .menu-btn svg { width: 18px; height: 18px; }
+  .menu-btn .icon-close { display: none; }
+  header.menu-open .menu-btn .icon-open { display: none; }
+  header.menu-open .menu-btn .icon-close { display: block; }
+  @media (max-width: 640px) { .menu-btn { display: grid; } }
+
+  .mobile-panel {
+    max-height: 0;
+    overflow: hidden;
+    border-top: 1px solid transparent;
+    transition: max-height .3s var(--ease), border-color .2s ease;
+  }
+  header.menu-open .mobile-panel { max-height: 260px; border-top-color: var(--border); }
+  .mobile-panel nav { display: flex; flex-direction: column; padding-top: 8px; padding-bottom: 20px; }
+  .mobile-panel a {
+    padding: 13px 4px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text-soft);
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-panel a:hover { color: var(--purple); text-decoration: none; }
+  .mobile-panel a:last-child { border-bottom: none; }
+
+
+  /* ---------- Section rhythm ---------- */
+  section { padding: 116px 0; position: relative; }
+  @media (max-width: 720px) { section { padding: 78px 0; } }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin: 0 0 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 26px; height: 1px;
+    background: var(--purple);
+    opacity: .5;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 150px 0 130px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    z-index: -1;
+    opacity: .55;
+    animation: float 16s ease-in-out infinite;
+    will-change: transform, translate;
+  }
+  .blob.b1 { width: 420px; height: 420px; top: -140px; right: -90px;
+    background: radial-gradient(circle at 30% 30%, var(--purple-soft), transparent 70%); }
+  .blob.b2 { width: 340px; height: 340px; top: 120px; left: -120px;
+    background: radial-gradient(circle at 60% 40%, var(--purple-bright), transparent 70%);
+    opacity: .35; animation-delay: -6s; }
+  /* float uses the `translate` property so JS can drive `transform` for parallax independently */
+  @keyframes float {
+    0%, 100% { translate: 0 0; scale: 1; }
+    50% { translate: 20px 30px; scale: 1.08; }
+  }
+  .hero-bg { will-change: transform; }
+  .parallax { will-change: transform; }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-soft);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    padding: 7px 15px 7px 12px;
+    border-radius: 999px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero .badge .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--purple);
+    position: relative;
+  }
+  .hero .badge .dot::after {
+    content: "";
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    background: var(--purple);
+    opacity: .35;
+    animation: ping 2.4s cubic-bezier(0,0,.2,1) infinite;
+  }
+  @keyframes ping { 0% { transform: scale(.6); opacity: .5; } 80%, 100% { transform: scale(2.2); opacity: 0; } }
+
+  .hero h1 {
+    font-size: clamp(2.7rem, 7.2vw, 4.7rem);
+    font-weight: 700;
+    margin-bottom: 26px;
+    letter-spacing: -0.03em;
+  }
+  .hero .subtitle {
+    font-size: clamp(1.08rem, 2.3vw, 1.4rem);
+    color: var(--text-soft);
+    font-weight: 450;
+    max-width: 640px;
+    line-height: 1.5;
+  }
+  .hero .subtitle .role { display: block; }
+  .hero .subtitle .role.accent { color: var(--text); font-weight: 550; }
+  .hero .subtitle .role + .role { margin-top: 3px; }
+
+  .cta-row { margin-top: 42px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+  .scroll-cue {
+    position: absolute;
+    left: 50%; bottom: 36px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-faint);
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  .scroll-cue:hover { color: var(--purple); text-decoration: none; }
+  .scroll-cue svg { width: 15px; height: 15px; animation: bob 2s ease-in-out infinite; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+  @media (max-width: 720px) { .scroll-cue { display: none; } }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 24px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .14s ease, box-shadow .14s ease, background .14s ease, border-color .14s ease, color .14s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-2px); }
+  .btn:active { transform: translateY(0) scale(.98); }
+  .btn:disabled { opacity: .6; cursor: default; transform: none; }
+  .btn svg { transition: transform .14s ease; }
+  .btn:hover svg { transform: translateX(3px); }
+  .btn-primary {
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    color: var(--btn-fg);
+    box-shadow: 0 10px 30px -10px var(--glow);
+  }
+  .btn-primary:hover { box-shadow: 0 16px 40px -12px var(--glow); }
+  .btn-ghost {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-ghost:hover { border-color: var(--purple); color: var(--purple); }
+
+  /* ---------- Capability strip ---------- */
+  .strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-alt);
+    padding: 26px 0;
+  }
+  .strip .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    align-items: center;
+    justify-content: center;
+  }
+  .strip .item {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .strip .item svg { width: 15px; height: 15px; color: var(--purple); }
+  .strip .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--border-strong); }
+  @media (max-width: 640px) { .strip .sep { display: none; } }
+
+  /* ---------- Tech marquee ---------- */
+  .marquee {
+    overflow: hidden;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    width: max-content;
+    animation: marquee 34s linear infinite;
+  }
+  .marquee-track span:not(.mq-dot) {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    white-space: nowrap;
+  }
+  .mq-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--purple); opacity: .6; flex: none; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+  /* ---------- About ---------- */
+  .about { background: var(--bg); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; gap: 34px; } }
+  .about h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); margin-bottom: 8px; }
+  .about .lede {
+    font-size: 1.16rem;
+    color: var(--text);
+    font-weight: 450;
+    margin: 20px 0 0;
+  }
+  .about p { font-size: 1.04rem; color: var(--text-soft); margin: 0 0 16px; }
+  .about p:last-child { margin-bottom: 0; }
+  .about .principles {
+    list-style: none;
+    padding: 26px;
+    margin: 0;
+    display: grid;
+    gap: 18px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .about .principles li {
+    display: flex;
+    gap: 14px;
+    font-size: 0.99rem;
+    color: var(--text-soft);
+  }
+  .about .principles .ico {
+    flex: none;
+    width: 32px; height: 32px;
+    border-radius: 9px;
+    background: var(--purple-wash);
+    border: 1px solid var(--purple-line);
+    display: grid; place-items: center;
+    color: var(--purple);
+  }
+  .about .principles .ico svg { width: 16px; height: 16px; }
+  .about .principles b { color: var(--text); font-weight: 600; display: block; font-family: var(--font-display); font-size: 0.96rem; margin-bottom: 1px; }
+
+  /* ---------- What I build ---------- */
+  .focus { padding-top: 0; background: var(--bg); }
+  .focus h2 { font-size: clamp(1.6rem, 3.8vw, 2.2rem); margin-bottom: 10px; }
+  .focus .lead { color: var(--text-soft); margin: 0 0 40px; max-width: 560px; }
+  .focus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 820px) { .focus-grid { grid-template-columns: 1fr; } }
+  .focus-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 30px 28px;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .focus-card::before {
+    content: "";
+    position: absolute; left: 0; top: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--ink), var(--purple));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .focus-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--purple-line); }
+  .focus-card:hover::before { transform: scaleX(1); }
+  .focus-index {
+    position: absolute; top: 24px; right: 28px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--border);
+    opacity: .8;
+    pointer-events: none;
+  }
+  .focus-ico {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--purple-wash);
+    border: 1px solid var(--purple-line);
+    display: grid; place-items: center;
+    color: var(--purple);
+    margin-bottom: 18px;
+  }
+  .focus-ico svg { width: 21px; height: 21px; }
+  .focus-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.01em; position: relative; }
+  .focus-card p { margin: 0; font-size: 0.96rem; color: var(--text-soft); line-height: 1.62; position: relative; }
+  .focus-card .chips { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 7px; position: relative; }
+
+  /* ---------- Education ---------- */
+  .education { padding-top: 0; background: var(--bg); }
+  .education h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); margin-bottom: 34px; }
+  .edu-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px 26px;
+    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .edu-card:hover { border-color: var(--purple-line); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .edu-ico {
+    flex: none;
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--purple-wash);
+    border: 1px solid var(--purple-line);
+    display: grid; place-items: center;
+    color: var(--purple);
+  }
+  .edu-ico svg { width: 22px; height: 22px; }
+  .edu-body { flex: 1; min-width: 0; }
+  .edu-body h3 { font-size: 1.08rem; font-weight: 600; margin-bottom: 4px; }
+  .edu-body p { margin: 0; font-size: 0.94rem; color: var(--text-soft); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .edu-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-faint); flex: none; }
+  .edu-chip { flex: none; }
+  @media (max-width: 560px) {
+    .edu-card { flex-wrap: wrap; }
+    .edu-chip { margin-left: 68px; }
+  }
+
+  /* ---------- Work ---------- */
+  .work { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .work h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); margin-bottom: 14px; }
+  .work .lead { color: var(--text-soft); margin: 0 0 52px; max-width: 560px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .cards { grid-template-columns: 1fr; max-width: 520px; } }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 30px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ink), var(--purple));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--purple-line);
+  }
+  .card:hover::before { transform: scaleX(1); }
+  .card .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .card .ico {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--purple-wash);
+    border: 1px solid var(--purple-line);
+    display: grid; place-items: center;
+    color: var(--purple);
+    transition: transform .2s var(--ease), background .2s ease;
+  }
+  .card .ico svg { width: 21px; height: 21px; }
+  .card:hover .ico { transform: rotate(-6deg) scale(1.06); }
+  .card-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .card-cat {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .card-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--purple);
+  }
+  .card-status .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--purple);
+    position: relative;
+  }
+  .card-status .dot::after {
+    content: "";
+    position: absolute; inset: -3px;
+    border-radius: 50%;
+    background: var(--purple);
+    opacity: .35;
+    animation: ping 2.4s cubic-bezier(0,0,.2,1) infinite;
+  }
+  .card h3 { font-size: 1.28rem; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .card p { margin: 0; font-size: 0.97rem; color: var(--text-soft); line-height: 1.62; }
+  .card .chips { margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font-family: var(--font-display);
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--purple);
+    background: var(--purple-wash);
+    border: 1px solid var(--purple-line);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .card .link {
+    margin-top: 16px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+  }
+  .card .link svg { transition: transform .14s ease; }
+  .card .link:hover { text-decoration: none; }
+  .card .link:hover svg { transform: translate(2px, -2px); }
+
+  /* ---------- GitHub activity ---------- */
+  .gh { padding-top: 0; background: var(--bg); }
+  .gh-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+  }
+  .gh-head { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+  .gh-head h2 { font-size: clamp(1.25rem, 2.6vw, 1.6rem); margin-bottom: 4px; }
+  .gh-head p { margin: 0; font-size: 0.92rem; color: var(--text-soft); }
+  .gh-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .gh-stat {
+    text-align: center;
+    padding: 20px 12px;
+    border-radius: 14px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .gh-num {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    background: linear-gradient(103deg, #d8b4fe, #a78bfa 70%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .gh-num[data-skel] { color: var(--text-faint); background: none; -webkit-text-fill-color: var(--text-faint); animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: .9; } }
+  .gh-label { display: block; margin-top: 6px; font-size: 12.5px; color: var(--text-faint); font-weight: 500; }
+  .gh-note { margin: 18px 0 0; font-size: 12.5px; color: var(--text-faint); text-align: center; }
+  @media (max-width: 560px) { .gh-stats { grid-template-columns: 1fr; } .gh-card { padding: 22px; } }
+
+  /* ---------- Contact ---------- */
+  .contact { background: var(--bg); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 60px;
+    align-items: start;
+  }
+  @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .contact h2 { font-size: clamp(1.8rem, 4.2vw, 2.6rem); margin-bottom: 16px; }
+  .contact .blurb { color: var(--text-soft); margin: 0 0 30px; }
+  .contact-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .contact-links a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 14.5px;
+    padding: 11px 13px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color .14s ease, transform .14s ease, box-shadow .14s ease;
+  }
+  .contact-links a:hover {
+    text-decoration: none;
+    border-color: var(--purple-line);
+    transform: translateX(3px);
+    box-shadow: var(--shadow-sm);
+  }
+  .contact-links .ic {
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    background: var(--purple-wash);
+    border: 1px solid var(--purple-line);
+    display: grid; place-items: center;
+    flex: none;
+  }
+  .contact-links .ic svg { width: 16px; height: 16px; fill: var(--purple); }
+  .contact-links .meta { display: flex; flex-direction: column; line-height: 1.3; }
+  .contact-links .meta span { font-size: 12px; color: var(--text-faint); font-weight: 450; }
+
+  form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 34px;
+    box-shadow: var(--shadow-lg);
+  }
+  @media (max-width: 480px) { form { padding: 24px; } }
+  .field { margin-bottom: 18px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 520px) { .row2 { grid-template-columns: 1fr; gap: 0; } }
+  label {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    margin-bottom: 7px;
+    color: var(--text);
+  }
+  input, textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: 11px;
+    padding: 12px 14px;
+    transition: border-color .14s ease, box-shadow .14s ease;
+  }
+  input::placeholder, textarea::placeholder { color: var(--text-faint); }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 0 4px var(--glow);
+  }
+  textarea { resize: vertical; min-height: 130px; }
+  form .btn-primary { width: 100%; justify-content: center; margin-top: 4px; }
+  .form-note { font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0; text-align: center; }
+  .form-status { font-size: 14px; font-weight: 500; margin: 12px 0 0; display: none; text-align: center; }
+  .form-status.show { display: block; }
+  .form-status.ok { color: #4ade80; }
+  .form-status.err { color: #f87171; }
+
+  /* ---------- WhatsApp floating button ---------- */
+  .wa-fab {
+    position: fixed;
+    right: 22px; bottom: 22px;
+    z-index: 80;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 28px -8px rgba(37, 211, 102, .55);
+    transition: transform .18s ease, box-shadow .18s ease;
+    opacity: 0;
+    transform: translateY(14px) scale(.9);
+    pointer-events: none;
+  }
+  .wa-fab.show { opacity: 1; transform: none; pointer-events: auto; }
+  .wa-fab:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 14px 36px -8px rgba(37, 211, 102, .7); text-decoration: none; }
+  .wa-fab svg { width: 27px; height: 27px; }
+  .wa-fab .ring {
+    position: absolute; inset: -6px;
+    border-radius: 50%;
+    border: 2px solid #25d366;
+    opacity: .45;
+    animation: wa-ping 2.6s cubic-bezier(0,0,.2,1) infinite;
+  }
+  @keyframes wa-ping { 0% { transform: scale(.85); opacity: .5; } 80%, 100% { transform: scale(1.35); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .wa-fab .ring { animation: none; } }
+  @media (max-width: 560px) { .wa-fab { right: 16px; bottom: 16px; width: 52px; height: 52px; } .wa-fab svg { width: 25px; height: 25px; } }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 44px 0; border-top: 1px solid var(--border); background: var(--bg-alt); }
+  .foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 13.5px; color: var(--text-faint); }
+  .foot .brand-sm { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 600; color: var(--text-soft); }
+  .foot .brand-sm .d { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); }
+  .foot .foot-links { display: flex; gap: 22px; align-items: center; }
+  .foot .foot-links a { color: var(--text-soft); font-weight: 500; }
+  .foot .to-top {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--purple); font-weight: 600;
+    font-family: var(--font-display); font-size: 13px;
+  }
+  .foot .to-top svg { width: 13px; height: 13px; transition: transform .15s ease; }
+  .foot .to-top:hover svg { transform: translateY(-2px); }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="mark">R</span> Rachel Sigamani</a>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#work">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button type="button" class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false" title="Menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobile-panel">
+    <nav class="wrap">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#work">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg" data-scroll="0.18"></div>
+    <div class="blob b1" data-scroll="0.32" data-mouse="26"></div>
+    <div class="blob b2" data-scroll="-0.16" data-mouse="-18"></div>
+    <div class="wrap" data-scroll="0.07" data-fade="1">
+      <span class="badge"><span class="dot"></span> Open to AI Automation &amp; AI Engineering roles</span>
+      <h1>Rachel <span class="grad-text">Sigamani</span></h1>
+      <p class="subtitle">
+        <span class="role accent">AI Builder &amp; Full-Stack Developer</span>
+        <span class="role">AI Automation, Agents &amp; Applied Engineering</span>
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">Get in touch
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#work">See what I'm building</a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="Scroll to explore">
+      <span>Scroll to explore</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- Capability strip -->
+  <div class="strip">
+    <div class="wrap">
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Agentic systems</span>
+      <span class="sep"></span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4zM8 7h.01M8 17h.01"/></svg> Workflow automation</span>
+      <span class="sep"></span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18 22 12 16 6M8 6 2 12l6 6"/></svg> Full-stack delivery</span>
+      <span class="sep"></span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2zM9 22h6"/></svg> Applied LLM engineering</span>
+      <span class="sep"></span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg> AI-integrated software</span>
+    </div>
+  </div>
+
+  <!-- Tech marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>PYTHON</span><span class="mq-dot"></span>
+      <span>REACT</span><span class="mq-dot"></span>
+      <span>N8N</span><span class="mq-dot"></span>
+      <span>CLAUDE API</span><span class="mq-dot"></span>
+      <span>LLM ORCHESTRATION</span><span class="mq-dot"></span>
+      <span>NODE.JS</span><span class="mq-dot"></span>
+      <span>VOICE &amp; SPEECH PIPELINES</span><span class="mq-dot"></span>
+      <span>REST APIs</span><span class="mq-dot"></span>
+      <span>PYTHON</span><span class="mq-dot"></span>
+      <span>REACT</span><span class="mq-dot"></span>
+      <span>N8N</span><span class="mq-dot"></span>
+      <span>CLAUDE API</span><span class="mq-dot"></span>
+      <span>LLM ORCHESTRATION</span><span class="mq-dot"></span>
+      <span>NODE.JS</span><span class="mq-dot"></span>
+      <span>VOICE &amp; SPEECH PIPELINES</span><span class="mq-dot"></span>
+      <span>REST APIs</span><span class="mq-dot"></span>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="reveal">
+          <p class="eyebrow">About</p>
+          <h2>Turning AI capability into tools that get used</h2>
+          <p class="lede">
+            I'm transitioning into AI Automation and AI Engineering roles, building full-stack
+            projects that turn AI capability into practical, working tools.
+          </p>
+          <p style="margin-top:16px;">
+            My focus is <strong style="color:var(--text);">agentic systems and automation</strong> —
+            designing, building, and shipping end-to-end, from architecture to deployment.
+            I care about tools that actually get used, not demos that stay demos.
+          </p>
+          <p style="margin-top:16px;">
+            That splits into two things I build. One is
+            <strong style="color:var(--text);">automation</strong> — workflows and agents that connect
+            AI to real systems and trigger real actions, most of it wired through n8n. The other is
+            <strong style="color:var(--text);">software with AI built in</strong> — full-stack
+            applications where an LLM API is a core part of the product, not a bolt-on feature.
+          </p>
+        </div>
+        <ul class="principles reveal d1">
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+            <span><b>Architecture to deployment</b>I own the whole path — design, build, ship — not just the prototype.</span>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <span><b>Built to be used</b>Real workflows, real triggers, real users — not screenshots and slide decks.</span>
+          </li>
+          <li>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8M4 8h4v4M4 16v4h4M8 20h8a4 4 0 0 0 0-8H8"/></svg></span>
+            <span><b>Agentic by default</b>LLM orchestration, memory, and automation wired into systems that act.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I build -->
+  <section class="focus">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">What I do</p>
+        <h2>Two disciplines, one goal — AI that ships</h2>
+        <p class="lead">Everything I build falls into one of these, usually both at once.</p>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-card reveal">
+          <span class="focus-index">01</span>
+          <span class="focus-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8M4 8h4v4M4 16v4h4M8 20h8a4 4 0 0 0 0-8H8"/></svg></span>
+          <h3>AI Automation &amp; Agentic Systems</h3>
+          <p>
+            Workflows and agents that connect AI to real tools and real triggers — not chat
+            windows that go nowhere. Speech pipelines, LLM orchestration, memory, and automation
+            wired through n8n so the system actually acts on its own.
+          </p>
+          <div class="chips">
+            <span class="chip">Agent orchestration</span>
+            <span class="chip">n8n workflows</span>
+            <span class="chip">Task automation</span>
+            <span class="chip">Memory &amp; state</span>
+          </div>
+        </article>
+        <article class="focus-card reveal d1">
+          <span class="focus-index">02</span>
+          <span class="focus-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18 22 12 16 6M8 6 2 12l6 6"/></svg></span>
+          <h3>Software with AI Built In</h3>
+          <p>
+            Full-stack applications where an LLM API is core product logic, not a feature bolted
+            on afterward — designed, built, and shipped end to end with real users, real portals,
+            and production concerns like auth, data, and deployment.
+          </p>
+          <div class="chips">
+            <span class="chip">Claude API</span>
+            <span class="chip">React / Next.js</span>
+            <span class="chip">Full-stack delivery</span>
+            <span class="chip">Multi-role portals</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="education" id="education">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Education</p>
+        <h2>Where the foundations were built</h2>
+      </div>
+      <div class="edu-card reveal d1">
+        <span class="edu-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5M22 10v6"/></svg></span>
+        <div class="edu-body">
+          <h3>Python Full Stack Development</h3>
+          <p>ACTE Technologies <span class="edu-dot"></span> Bangalore, India</p>
+        </div>
+        <span class="chip edu-chip">Course</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">Projects</p>
+        <h2>Three things I'm working on right now</h2>
+        <p class="lead">Active projects across assistants, automation, and applied LLM products.</p>
+      </div>
+      <div class="cards">
+
+        <article class="card reveal">
+          <div class="card-top">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8 22h8"/></svg></span>
+            <div class="card-meta">
+              <span class="card-cat">AI Assistant</span>
+              <span class="card-status"><span class="dot"></span>Active</span>
+            </div>
+          </div>
+          <h3>Jarvis</h3>
+          <p>
+            A voice-and-text AI assistant built in phases — speech pipeline, LLM orchestration,
+            memory, and task automation — now integrated with n8n for real-world workflow triggering.
+          </p>
+          <div class="chips">
+            <span class="chip">Speech pipeline</span>
+            <span class="chip">LLM orchestration</span>
+            <span class="chip">Memory</span>
+            <span class="chip">n8n</span>
+          </div>
+        </article>
+
+        <article class="card reveal d1">
+          <div class="card-top">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M6 9v6M8.6 7.3 15.4 10.7M8.6 16.7 15.4 13.3"/></svg></span>
+            <div class="card-meta">
+              <span class="card-cat">Automation</span>
+              <span class="card-status"><span class="dot"></span>Active</span>
+            </div>
+          </div>
+          <h3>n8n Automation Workflow Portfolio</h3>
+          <p>
+            A growing set of documented automation builds — meeting-notes processing, contact
+            enrichment, form handling — published on GitHub.
+          </p>
+          <div class="chips">
+            <span class="chip">n8n</span>
+            <span class="chip">Workflow design</span>
+            <span class="chip">Documentation</span>
+          </div>
+          <a class="link" href="https://github.com/techrachel-98" target="_blank" rel="noopener">
+            View on GitHub
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </article>
+
+        <article class="card reveal d2">
+          <div class="card-top">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></span>
+            <div class="card-meta">
+              <span class="card-cat">EdTech</span>
+              <span class="card-status"><span class="dot"></span>Active</span>
+            </div>
+          </div>
+          <h3>GradTech AI</h3>
+          <p>
+            An LLM-powered grading platform for Malaysian schools, built with React and the
+            Claude API, with teacher, student, and parent portals.
+          </p>
+          <div class="chips">
+            <span class="chip">React</span>
+            <span class="chip">Claude API</span>
+            <span class="chip">EdTech</span>
+            <span class="chip">Multi-portal</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub activity -->
+  <section class="gh">
+    <div class="wrap">
+      <div class="gh-card reveal">
+        <div class="gh-head">
+          <span class="edu-ico"><svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0 0 12 2z"/></svg></span>
+          <div>
+            <h2>Live from GitHub</h2>
+            <p>Pulled straight from the public API for <a href="https://github.com/techrachel-98" target="_blank" rel="noopener">github.com/techrachel-98</a></p>
+          </div>
+        </div>
+        <div class="gh-stats" id="gh-stats">
+          <div class="gh-stat"><span class="gh-num" data-skel>—</span><span class="gh-label">Public repos</span></div>
+          <div class="gh-stat"><span class="gh-num" data-skel>—</span><span class="gh-label">Followers</span></div>
+          <div class="gh-stat"><span class="gh-num" data-skel>—</span><span class="gh-label">Following</span></div>
+        </div>
+        <p class="gh-note" id="gh-note">Loading live stats…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+
+      <div class="reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk</h2>
+        <p class="blurb">
+          Building something in AI automation or agentic systems, or hiring for one?
+          Send a note and I'll get back to you.
+        </p>
+        <ul class="contact-links">
+          <li>
+            <a href="https://www.linkedin.com/in/rachelavrill/" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6 2.5 2.5 0 0 1 4.98 3.5zM2.9 8.6h4.16V21H2.9zM9.5 8.6h3.99v1.7h.06a4.37 4.37 0 0 1 3.93-2.16c4.2 0 4.98 2.77 4.98 6.37V21h-4.15v-5.5c0-1.31-.02-3-1.83-3s-2.11 1.43-2.11 2.9V21H9.5z"/></svg></span>
+              <span class="meta">LinkedIn <span>in/rachelavrill</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/techrachel-98" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0 0 12 2z"/></svg></span>
+              <span class="meta">GitHub <span>github.com/techrachel-98</span></span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:techwithrachel@gmail.com">
+              <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2 8-5.2H4zM4 8.8V18h16V8.8l-8 5.2z"/></svg></span>
+              <span class="meta">Email <span>techwithrachel@gmail.com</span></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <form id="contact-form" class="reveal d1" novalidate>
+        <input type="hidden" name="_subject" value="New portfolio enquiry" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="row2">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="What are you working on?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="form-note">Sends straight to my inbox — no email app needed. Falls back to opening your mail app only if the relay can't be reached.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<a
+  href="https://wa.me/60108874129?text=Hi%20Rachel%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect!"
+  class="wa-fab"
+  id="wa-fab"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat on WhatsApp"
+  title="Chat on WhatsApp"
+>
+  <span class="ring" aria-hidden="true"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm5.6 14.3c-.24.66-1.4 1.26-1.93 1.32-.5.06-1.06.27-3.55-.74-2.98-1.22-4.9-4.24-5.05-4.44-.15-.2-1.2-1.6-1.2-3.05s.76-2.17 1.03-2.47c.27-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.52.24.6.83 2.04.9 2.19.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.32 2.38 1.47.3.15.48.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.76.83 2.06.98.3.15.5.22.57.35.08.13.08.75-.16 1.4z"/></svg>
+</a>
+
+<footer>
+  <div class="wrap foot">
+    <span class="brand-sm"><span class="d"></span> Rachel Sigamani</span>
+    <span>&copy; <span id="year"></span> · Built with plain HTML, CSS &amp; JS</span>
+    <span class="foot-links">
+      <a href="https://www.linkedin.com/in/rachelavrill/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/techrachel-98" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:techwithrachel@gmail.com">Email</a>
+      <a class="to-top" href="#top">Back to top
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // ---------- Mobile menu ----------
+  (function () {
+    var headerEl = document.getElementById("header");
+    var menuBtn = document.getElementById("menu-btn");
+    var panel = document.getElementById("mobile-panel");
+    function close() { headerEl.classList.remove("menu-open"); menuBtn.setAttribute("aria-expanded", "false"); }
+    menuBtn.addEventListener("click", function () {
+      var open = headerEl.classList.toggle("menu-open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    panel.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", close); });
+    window.addEventListener("resize", function () { if (window.innerWidth > 640) close(); });
+  })();
+
+  // ---------- Scroll: progress bar + header shadow ----------
+  var progress = document.getElementById("progress");
+  var header = document.getElementById("header");
+  var waFab = document.getElementById("wa-fab");
+  function onScroll() {
+    var st = window.scrollY || document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    progress.style.width = (h > 0 ? (st / h) * 100 : 0) + "%";
+    header.classList.toggle("scrolled", st > 8);
+    if (waFab) waFab.classList.toggle("show", st > window.innerHeight * 0.6);
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // ---------- Smooth parallax (scroll + pointer) ----------
+  (function () {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var coarse = window.matchMedia("(pointer: coarse)").matches;
+    if (reduce) return;
+
+    var items = Array.prototype.slice.call(document.querySelectorAll("[data-scroll],[data-mouse]"))
+      .map(function (el) {
+        return {
+          el: el,
+          scroll: parseFloat(el.getAttribute("data-scroll")) || 0,
+          mouse: parseFloat(el.getAttribute("data-mouse")) || 0,
+          fade: el.hasAttribute("data-fade"),
+          cur: { x: 0, y: 0, o: 1 },
+          tgt: { x: 0, y: 0, o: 1 }
+        };
+      });
+    if (!items.length) return;
+
+    var vh = window.innerHeight;
+    var mx = 0, my = 0;          // normalized pointer offset (-1..1)
+    var running = false;
+
+    function computeTargets() {
+      var scrollY = window.scrollY || document.documentElement.scrollTop;
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i];
+        it.tgt.y = scrollY * it.scroll + (coarse ? 0 : my * it.mouse);
+        it.tgt.x = coarse ? 0 : mx * it.mouse;
+        if (it.fade) {
+          var p = Math.min(Math.max(scrollY / (vh * 0.7), 0), 1);
+          it.tgt.o = 1 - p * 0.85;
+        }
+      }
+    }
+
+    function frame() {
+      var moving = false;
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i], c = it.cur, t = it.tgt;
+        c.x += (t.x - c.x) * 0.09;
+        c.y += (t.y - c.y) * 0.09;
+        c.o += (t.o - c.o) * 0.09;
+        if (Math.abs(t.x - c.x) > 0.05 || Math.abs(t.y - c.y) > 0.05 || Math.abs(t.o - c.o) > 0.002) moving = true;
+        it.el.style.transform = "translate3d(" + c.x.toFixed(2) + "px," + c.y.toFixed(2) + "px,0)";
+        if (it.fade) it.el.style.opacity = c.o.toFixed(3);
+      }
+      if (moving) { requestAnimationFrame(frame); }
+      else { running = false; }
+    }
+    function kick() { if (!running) { running = true; requestAnimationFrame(frame); } }
+
+    window.addEventListener("scroll", function () { computeTargets(); kick(); }, { passive: true });
+    window.addEventListener("resize", function () { vh = window.innerHeight; computeTargets(); kick(); });
+    if (!coarse) {
+      window.addEventListener("pointermove", function (e) {
+        mx = (e.clientX / window.innerWidth - 0.5) * 2;
+        my = (e.clientY / window.innerHeight - 0.5) * 2;
+        computeTargets();
+        kick();
+      }, { passive: true });
+    }
+    computeTargets();
+    kick();
+  })();
+
+  // ---------- Live GitHub stats ----------
+  (function () {
+    var wrap = document.getElementById("gh-stats");
+    var note = document.getElementById("gh-note");
+    if (!wrap) return;
+    var nums = wrap.querySelectorAll(".gh-num");
+
+    function animateTo(el, value) {
+      var start = 0, duration = 900, startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var p = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(start + (value - start) * eased);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    fetch("https://api.github.com/users/techrachel-98")
+      .then(function (r) { if (!r.ok) throw new Error("GitHub API error " + r.status); return r.json(); })
+      .then(function (data) {
+        var values = [data.public_repos || 0, data.followers || 0, data.following || 0];
+        nums.forEach(function (el, i) {
+          el.removeAttribute("data-skel");
+          animateTo(el, values[i]);
+        });
+        note.textContent = "Live · updated on every page load";
+      })
+      .catch(function () {
+        nums.forEach(function (el) { el.textContent = "—"; el.removeAttribute("data-skel"); });
+        note.innerHTML = 'Couldn\'t reach the GitHub API right now — see <a href="https://github.com/techrachel-98" target="_blank" rel="noopener">the profile directly</a>.';
+      });
+  })();
+
+  // ---------- Reveal on scroll ----------
+  var reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  // ---------- Active nav link ----------
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+  var sections = navLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+  if ("IntersectionObserver" in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var id = "#" + e.target.id;
+          navLinks.forEach(function (a) { a.classList.toggle("active", a.getAttribute("href") === id); });
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(function (s) { if (s) spy.observe(s); });
+  }
+
+  // ---------- Contact form -> relay, with mailto fallback ----------
+  var form = document.getElementById("contact-form");
+  var statusEl = document.getElementById("form-status");
+  var submitBtn = form.querySelector('button[type="submit"]');
+  function setStatus(msg, type) { statusEl.textContent = msg; statusEl.className = "form-status show " + type; }
+
+  function openMailFallback(name, email, message) {
+    var subject = "Portfolio enquiry from " + name;
+    var body = "Name: " + name + "\nEmail: " + email + "\n\n" + message;
+    window.location.href =
+      "mailto:techwithrachel@gmail.com?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+  }
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var message = form.message.value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!name || !message || !emailOk) {
+      setStatus("Please add your name, a valid email, and a message.", "err");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    setStatus("Sending…", "ok");
+
+    fetch("https://formsubmit.co/ajax/techwithrachel@gmail.com", {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(form)
+    })
+      .then(function (r) { if (!r.ok) throw new Error("relay responded " + r.status); return r.json(); })
+      .then(function (data) {
+        // FormSubmit returns HTTP 200 even when it hasn't sent anything yet
+        // (e.g. "needs activation") — success is only real when data.success is truthy.
+        if (data.success !== true && data.success !== "true") {
+          throw new Error(data.message || "relay did not confirm delivery");
+        }
+        setStatus("Message sent — I'll get back to you soon.", "ok");
+        form.reset();
+      })
+      .catch(function () {
+        openMailFallback(name, email, message);
+        setStatus("Couldn't reach the mail relay, so I opened your email app instead — if nothing happened, email techwithrachel@gmail.com directly.", "err");
+      })
+      .finally(function () { submitBtn.disabled = false; });
+  });
+</script>
+
+</body>
+</html>

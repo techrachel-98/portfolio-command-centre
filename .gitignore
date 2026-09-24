@@ -1,0 +1,18 @@
+# dependencies & builds
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# secrets — never commit
+.env
+.env.*
+!.env.example
+
+# local tooling / scratch
+.claude/settings.local.json
+*.tmp
+.vercel/
+.DS_Store
+npm-debug.log*
