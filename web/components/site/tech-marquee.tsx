@@ -5,6 +5,10 @@ const ITEMS = [
   "CLAUDE API",
   "LLM ORCHESTRATION",
   "NODE.JS",
+  "SUPABASE",
+  "POSTGRES",
+  "MONGODB",
+  "DOCKER",
   "VOICE & SPEECH PIPELINES",
   "REST APIs",
 ];

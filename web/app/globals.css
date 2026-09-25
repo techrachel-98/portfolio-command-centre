@@ -220,7 +220,7 @@ body::before {
   }
 }
 .animate-marquee {
-  animation: marquee 34s linear infinite;
+  animation: marquee 50s linear infinite; /* ~34s per 8 items → keep the same scroll speed with 12 */
 }
 
 @keyframes wa-ping {
