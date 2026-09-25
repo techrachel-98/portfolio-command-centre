@@ -197,10 +197,6 @@ export function Contact() {
               Send message
               <Send size={15} />
             </button>
-            <p className="text-[12.5px] text-text-faint mt-3.5 text-center">
-              Sends straight to my inbox — no email app needed. Falls back to opening your mail app
-              only if the relay can&apos;t be reached.
-            </p>
             {status && (
               <p
                 role="status"
